@@ -43,20 +43,7 @@ public static class StreamExtention
     {
         byte[] buffer = new byte[count];
         var x = stream.Read(buffer, 0, buffer.Length);
-        //Debug.Log(stream.Position - count + " " + x + " " + ToString(buffer));
         return buffer;
-    }
-
-    public static string ToString(byte[] bytes)
-    {
-        string result = "";
-
-        for (int i = 0; i < bytes.Length; i++)
-        {
-            result += bytes[i].ToString("X") + " ";
-        }
-
-        return result;
     }
 
     public static int ReadInt(this Stream stream)
