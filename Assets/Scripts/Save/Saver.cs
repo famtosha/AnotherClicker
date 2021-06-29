@@ -7,6 +7,7 @@ using Zenject;
 public class Saver : MonoBehaviour
 {
     private static string savePath => Application.persistentDataPath + "/Saves";
+    public static string GetFullPath(string saveName) => $"{savePath}/{saveName}.cabt";
 
     [SerializeField] private CoinModifierFactory _factory;
 
@@ -22,6 +23,7 @@ public class Saver : MonoBehaviour
         _shop = shop;
         Application.quitting += OnApplicationQuitting;
         _clicker.CoinCountChanged += OnClickerCointCountChanged;
+        CreateDirectory();
         Load("first");
     }
 
@@ -31,6 +33,14 @@ public class Saver : MonoBehaviour
         {
             RemoveSave();
             Application.quitting -= OnApplicationQuitting;
+        }
+    }
+
+    private void CreateDirectory()
+    {
+        if (!Directory.Exists(savePath))
+        {
+            Directory.CreateDirectory(savePath);
         }
     }
 
@@ -76,6 +86,4 @@ public class Saver : MonoBehaviour
             saveData.Write(saveName);
         }
     }
-
-    public static string GetFullPath(string saveName) => $"{savePath}/{saveName}.cabt";
 }
