@@ -15,10 +15,10 @@ public class ClickerInstaller : MonoInstaller
     public override void InstallBindings()
     {
         BindClicker();
-        BindClickerUI();
         BindShop();
-        BindShopUI();
         BindSaver();
+        BindClickerUI();
+        BindShopUI();
         BindBackground();
     }
 

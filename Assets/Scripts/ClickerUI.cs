@@ -12,11 +12,13 @@ public class ClickerUI : MonoBehaviour
     [SerializeField] private Image _background;
     public Image background => _background;
     private Clicker _clicker;
+    private SceneLoader _sceneLoader;
 
     [Inject]
-    private void Construct(Clicker clicker)
+    private void Construct(Clicker clicker, SceneLoader sceneLoader)
     {
         _clicker = clicker;
+        _sceneLoader = sceneLoader;
         _clicker.CoinCountChanged += OnCoinCountChanged;
     }
 
