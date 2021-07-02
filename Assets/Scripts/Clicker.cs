@@ -23,6 +23,11 @@ public class Clicker : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        currentCoinCount += _coinModifiersCalculator.GetTotalAddAmount();
+    }
+
     public void Click()
     {
         currentCoinCount += _coinModifiersCalculator.GetTotalCoinsCount(1);

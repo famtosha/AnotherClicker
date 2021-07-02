@@ -25,6 +25,17 @@ public class CoinModifiersCalculator
         return currenCoinCount;
     }
 
+    public int GetTotalAddAmount()
+    {
+        int total = 0;
+
+        foreach (var coinModifier in _coinModifiers)
+        {
+            total += coinModifier.Tick();
+        }
+        return total;
+    }
+
     public void AddCoinModifier(CoinModifier coinModifier)
     {
         _coinModifiers.Add(coinModifier);

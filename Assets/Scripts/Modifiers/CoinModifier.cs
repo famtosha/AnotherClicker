@@ -6,4 +6,5 @@ public abstract class CoinModifier : ScriptableObject
     public int modifierCost;
     public Sprite sprite;
     public abstract int CalculateTotalCoins(int currentCoinCount);
+    public abstract int Tick();
 }

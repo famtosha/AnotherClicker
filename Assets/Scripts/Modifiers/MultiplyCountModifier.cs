@@ -9,4 +9,9 @@ public class MultiplyCountModifier : CoinModifier
     {
         return Mathf.RoundToInt(currentCoinCount * multiplyAmout);
     }
+
+    public override int Tick()
+    {
+        return 0;
+    }
 }

@@ -9,4 +9,9 @@ public class AddCoinModifier : CoinModifier
     {
         return currentCoinCount + addAmount;
     }
+
+    public override int Tick()
+    {
+        return 0;
+    }
 }

@@ -46,4 +46,5 @@ MonoBehaviour:
   _coinModifiers:
   - {fileID: 11400000, guid: 936ab5e6f6650b240a90cded932a7b53, type: 2}
   - {fileID: 11400000, guid: 52dda4a2a107f8640a1fbf4172c610b6, type: 2}
+  - {fileID: 11400000, guid: 30c1d11713b989c46a3a3436977548ba, type: 2}
   _factory: {fileID: 11400000, guid: 30740597ab92905498c1b47862f2f5d0, type: 2}
