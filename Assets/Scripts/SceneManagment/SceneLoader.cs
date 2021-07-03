@@ -20,7 +20,11 @@ public class SceneLoader : MonoBehaviour
 
     public void LoadScene(int buildIndex)
     {
-        if (_loadOperation != null) Debug.LogError($"Scene already loading");
+        if (_loadOperation != null)
+        {
+            Debug.LogError($"Scene already loading");
+            return;
+        }
         var state = SceneManager.LoadSceneAsync(buildIndex);
         state.allowSceneActivation = false;
         OpenLoadScreen();

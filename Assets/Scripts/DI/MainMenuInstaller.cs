@@ -7,12 +7,6 @@ public class MainMenuInstaller : MonoInstaller
 
     public override void InstallBindings()
     {
-        BindMainMenu();
-    }
-
-    private void BindMainMenu()
-    {
-        var mainMenu = Container.InstantiatePrefabForComponent<MainMenu>(_mainMenu, Vector3.zero, Quaternion.identity, null);
-        Container.Bind<MainMenu>().FromInstance(mainMenu).AsSingle();
+        Container.Bind<MainMenu>().FromInstance(_mainMenu).AsSingle();
     }
 }

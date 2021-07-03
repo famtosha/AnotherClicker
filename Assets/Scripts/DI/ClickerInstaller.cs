@@ -3,58 +3,23 @@ using Zenject;
 
 public class ClickerInstaller : MonoInstaller
 {
-    [SerializeField] private Clicker _clickerPrefub;
-    [SerializeField] private ClickerUI _clickerUIPrefub;
+    [SerializeField] private Clicker _clicker;
+    [SerializeField] private ClickerUI _clickerUI;
 
-    [SerializeField] private ShopUI _shopUIPrefub;
-    [SerializeField] private Shop _shopPrefub;
+    [SerializeField] private ShopUI _shopUI;
+    [SerializeField] private Shop _shop;
 
-    [SerializeField] private Saver _saverPrefub;
-    [SerializeField] private Background _backgrondPrefub;
+    [SerializeField] private Saver _saver;
+    [SerializeField] private Background _background;
 
     public override void InstallBindings()
     {
-        BindClicker();
-        BindShop();
-        BindSaver();
-        BindClickerUI();
-        BindShopUI();
-        BindBackground();
-    }
+        Container.Bind<Clicker>().FromInstance(_clicker).AsSingle();
+        Container.Bind<Shop>().FromInstance(_shop).AsSingle();
+        Container.Bind<Saver>().FromInstance(_saver).AsSingle();
 
-    private void BindClickerUI()
-    {
-        var clickerUI = Container.InstantiatePrefabForComponent<ClickerUI>(_clickerUIPrefub, Vector3.zero, Quaternion.identity, null);
-        Container.Bind<ClickerUI>().FromInstance(clickerUI).AsSingle();
-    }
-
-    private void BindClicker()
-    {
-        var clicker = Container.InstantiatePrefabForComponent<Clicker>(_clickerPrefub, Vector3.zero, Quaternion.identity, null);
-        Container.Bind<Clicker>().FromInstance(clicker).AsSingle();
-    }
-
-    private void BindShopUI()
-    {
-        var shopUI = Container.InstantiatePrefabForComponent<ShopUI>(_shopUIPrefub, Vector3.zero, Quaternion.identity, null);
-        Container.Bind<ShopUI>().FromInstance(shopUI).AsSingle();
-    }
-
-    private void BindShop()
-    {
-        var shop = Container.InstantiatePrefabForComponent<Shop>(_shopPrefub, Vector3.zero, Quaternion.identity, null);
-        Container.Bind<Shop>().FromInstance(shop).AsSingle();
-    }
-
-    private void BindSaver()
-    {
-        var saver = Container.InstantiatePrefabForComponent<Saver>(_saverPrefub, Vector3.zero, Quaternion.identity, null);
-        Container.Bind<Saver>().FromInstance(saver).AsSingle();
-    }
-
-    private void BindBackground()
-    {
-        var background = Container.InstantiatePrefabForComponent<Background>(_backgrondPrefub, Vector3.zero, Quaternion.identity, null);
-        Container.Bind<Background>().FromInstance(background).AsSingle();
+        Container.Bind<ClickerUI>().FromInstance(_clickerUI).AsSingle();
+        Container.Bind<ShopUI>().FromInstance(_shopUI).AsSingle();
+        Container.Bind<Background>().FromInstance(_background).AsSingle();
     }
 }
