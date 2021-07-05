@@ -8,9 +8,9 @@ public class Clicker : MonoBehaviour
 {
     public event Action CoinCountChanged;
 
-    private CoinModifiersCalculator _coinModifiersCalculator = new CoinModifiersCalculator();
+    private CoinModifierList _coinModifiersList = new CoinModifierList();
 
-    public CoinModifiersCalculator coinModifiersCalculator => _coinModifiersCalculator;
+    public CoinModifierList coinModifiersList => _coinModifiersList;
 
     private int _currentCoinCount;
     public int currentCoinCount
@@ -25,16 +25,16 @@ public class Clicker : MonoBehaviour
 
     private void Update()
     {
-        currentCoinCount += _coinModifiersCalculator.GetTotalAddAmount();
+        currentCoinCount += _coinModifiersList.GetAutoclickedCoins();
     }
 
     public void Click()
     {
-        currentCoinCount += _coinModifiersCalculator.GetTotalCoinsCount(1);
+        currentCoinCount += _coinModifiersList.GetClickCoinsWithBonus(1);
     }
 
     public void AddModifier(CoinModifier coinModifier)
     {
-        _coinModifiersCalculator.AddCoinModifier(coinModifier);
+        _coinModifiersList.AddCoinModifier(coinModifier);
     }
 }

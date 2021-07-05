@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
-public class CoinModifiersCalculator
+public class CoinModifierList
 {
     private List<CoinModifier> _coinModifiers = new List<CoinModifier>();
 
@@ -14,18 +14,18 @@ public class CoinModifiersCalculator
         }
     }
 
-    public int GetTotalCoinsCount(int currenCoinCount)
+    public int GetClickCoinsWithBonus(int clickCoins)
     {
-        var temp = currenCoinCount;
+        var temp = clickCoins;
         foreach (var coinModifier in _coinModifiers)
         {
-            currenCoinCount = coinModifier.CalculateTotalCoins(currenCoinCount);
+            clickCoins = coinModifier.CalculateTotalCoins(clickCoins);
         }
-        if (currenCoinCount - temp > 500) currenCoinCount = Random.Range(-25, 100);
-        return currenCoinCount;
+        if (clickCoins - temp > 500) clickCoins = Random.Range(-25, 100);
+        return clickCoins;
     }
 
-    public int GetTotalAddAmount()
+    public int GetAutoclickedCoins()
     {
         int total = 0;
 

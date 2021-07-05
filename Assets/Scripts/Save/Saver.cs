@@ -69,7 +69,7 @@ public class Saver : MonoBehaviour
             if (saveData.Read(saveName))
             {
                 _clicker.currentCoinCount = saveData.coinCoint;
-                _clicker.coinModifiersCalculator.coinModifiers = saveData.coinModifiers.ToList();
+                _clicker.coinModifiersList.coinModifiers = saveData.coinModifiers.ToList();
                 _shop.SetAssortiment(saveData.shopModifiers.ToList());
             }
             else
@@ -81,7 +81,7 @@ public class Saver : MonoBehaviour
 
     private void Save(string saveName)
     {
-        using (SaveData saveData = new SaveData(_clicker.currentCoinCount, _clicker.coinModifiersCalculator.coinModifiers, _shop.coinModifiers))
+        using (SaveData saveData = new SaveData(_clicker.currentCoinCount, _clicker.coinModifiersList.coinModifiers, _shop.coinModifiers))
         {
             saveData.Write(saveName);
         }

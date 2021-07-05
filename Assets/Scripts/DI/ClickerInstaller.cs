@@ -17,7 +17,6 @@ public class ClickerInstaller : MonoInstaller
         Container.Bind<Clicker>().FromInstance(_clicker).AsSingle();
         Container.Bind<Shop>().FromInstance(_shop).AsSingle();
         Container.Bind<Saver>().FromInstance(_saver).AsSingle();
-
         Container.Bind<ClickerUI>().FromInstance(_clickerUI).AsSingle();
         Container.Bind<ShopUI>().FromInstance(_shopUI).AsSingle();
         Container.Bind<Background>().FromInstance(_background).AsSingle();

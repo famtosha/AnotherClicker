@@ -3,8 +3,8 @@
 [CreateAssetMenu(fileName = "AutoClicker", menuName = "CoinModifiers/AutoClicker")]
 public class AutoClicker : CoinModifier
 {
-    public Timer _minerCD = new Timer(0.1f);
-    public int _minerAmmout;
+    public Timer minerCD = new Timer(0.1f);
+    public int minerAmmout = 1;
 
     public override int CalculateTotalCoins(int currentCoinCount)
     {
@@ -13,11 +13,11 @@ public class AutoClicker : CoinModifier
 
     public override int Tick()
     {
-        _minerCD.UpdateTimer(Time.deltaTime);
-        if (_minerCD.isReady)
+        minerCD.UpdateTimer(Time.deltaTime);
+        if (minerCD.isReady)
         {
-            _minerCD.Reset();
-            return _minerAmmout;
+            minerCD.Reset();
+            return minerAmmout;
         }
 
         return 0;
